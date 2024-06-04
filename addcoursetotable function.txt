@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="exs.css">
+    <script src="exs.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- table -->
+    <table border="2px">
+        <tr>
+            <td>CSCI200</td>
+            <td>Intro To Comps</td>
+        </tr>
+        <tr>
+            <td>CSCI250</td>
+            <td>Intro To Programming</td>
+        </tr>
+        <tr>
+            <td>CSCI305</td>
+            <td>Web Programming Static</td>
+        </tr>
+    </table>
+    <!-- inputs -->
+    <p>Course Code: <input type="text"></p>
+    <p>Course Description: <input type="text"></p>
+
+    <!-- add course button -->
+    <button onclick="AddCourse()">Add Course</button>
+</body>
+</html>
+
+
+*JAVASCRIPT*
+
+function AddCourse(){
+    //take inputs
+    let code = document.getElementsByTagName('input')[0];
+    let desc = document.getElementsByTagName('input')[1];
+    
+    //take table
+    let coursestable = document.getElementsByTagName("table")[0];
+    
+    //create one row and two cells
+    let courserow = document.createElement("tr");
+    let cellcode = document.createElement("td");
+    let celldesc = document.createElement("td");
+
+    //assign cellcode and celldesc values of code and desc
+    cellcode.innerHTML = code.value;
+    celldesc.innerHTML = desc.value;
+
+    //add table cells to row
+    courserow.appendChild(cellcode);
+    courserow.appendChild(celldesc);
+    
+    //add row to table
+    coursestable.appendChild(courserow);
+
+    //clear input
+    code.value = "";
+    desc.value = "";
+
+}
